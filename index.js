@@ -12,6 +12,11 @@ const config = {
   channelMap: {},
 };
 
+app.use((req, res, next) => {
+  console.log(req.originalUrl, req.body);
+  return next;
+});
+
 app.use(createServer(config));
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
